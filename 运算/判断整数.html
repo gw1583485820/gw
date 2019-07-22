@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>判断整数</title>
+	</head>
+	<body>
+		数值：<input type="text" id="a" /><br><br>
+		<input type="button" value="判断" onclick="panduan()"/>
+	</body>
+	<script type="text/javascript">
+		function panduan(){
+			var a=parseInt(document.getElementById('a').value)
+			if(a>0){
+				alert(a+"是正数")
+			}else if(a==0){
+				alert(a+"为0")
+			}else{
+				alert(a+"为负数")
+			}
+		}
+	</script>
+</html>

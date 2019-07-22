@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--js三大流程控制语句：顺序控制，分支控制，循环控制-->
+		<!--顺序控制：自上而下逐条运行-->
+		<!--分支控制：1、单路控制if(){}
+		2、双路控制if(){}else{}
+		3、多路控制if(){}else if(){}else{}
+		4、嵌套控制if(){
+			if(){}else{}
+		}
+		5、switch控制-->
+		
+		
+		
+		<!--今天内容-->
+		<!--循环控制-->
+		<!--for循环 	for in循环 	while循环 do while循环-->
+	</body>
+	<script>
+//		document.write("1")
+//		for循环三大语句:1.初始值2.最大/最小范围3.自增或自减
+//		for(var x = 0;x<=10;x++){
+//			document.write(x+"<br>")//字符串拼接
+//		}
+//		for(var x = 10; x>=0;x--){
+//			document.write(x+"<br>")
+//		}
+//		for循环执行顺序   1.初始值 2.条件 3.代码块 4.根据自增或自减去执行代码块
+		var he = 0
+//		将1-10的数字全部遍历出来(也就是循环出来)
+//		for(var i=1; i<=10; i++){
+//			i=1,2,3,4,5,6,7,8,9,10
+//			he = he +i
+			//
+//		}document.write(he+"<br>")
+//		for(var i=1; i<=3;i++){
+//			for(var j=4; j<=6;j++){
+//				document.write(i+"&nbsp;&nbsp;&nbsp;&nbsp;"+j+"<br>")
+//			}
+//		}
+		var shuzu = ["mingzi","xingbie","aihao","cuihuaer","pinru"]
+//		for(var i=0;i<shuzu.length;i++){
+//			document.write(shuzu[i]+"<br>")
+//		}
+//		var obj = {name:"世贤",huayu:"你好骚啊"}
+//		for(i in obj){
+//			document.write(i+"<br>")
+//			document.write(obj[i]+"<br>")
+//		}
+//		for(i in shuzu){
+//			document.write(shuzu[i]+"<br>")
+//		}
+//		var i = 1;
+//		while (i>0){
+//			document.write("这是我第"+i+"次循环"+"<br>")
+//			i++;
+//		}
+//		var i=1;
+//		do{
+//			document.write(i+"<br>")
+//			i++
+//		}while(i>100)
+//		for(var i=0; i<10;i++){
+//			if(i==4){
+//				break;
+//			}
+//			document.write(i+"<br>")
+//		}
+		for(var i=0; i<10; i++){
+			if(i%2!=0){
+				continue;
+			}
+			document.write(i)
+		}
+	</script>
+</html>

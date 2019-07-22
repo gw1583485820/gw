@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			div{
+				width: 800px;
+				height: 400px;
+				position: relative;
+				margin: 100px auto;
+				overflow: hidden;
+			}
+			ul{
+				width: 4800px;
+				height: 400px;
+				position: absolute;
+			}
+			li{
+				width: 800px;
+				height: 400px;
+				float: left;
+			}
+			li>img{
+				width: 100%;
+				height: 100%;
+			}
+			button{
+				position: absolute;
+				top: 180px;
+				width: 30px;
+				height: 40px;
+				background: none;
+				border: 1px solid black;
+			}
+			button:nth-of-type(2){
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li><img src="image/微信图片_20181203144804.jpg"/></li>
+				<li><img src="image/微信图片_20181229091252.jpg"/></li>
+				<li><img src="image/微信图片_20190102095532.jpg"/></li>
+				<li><img src="image/微信图片_20190102095536.jpg"/></li>
+				<li><img src="image/微信图片_20190102095546.jpg"/></li>
+				<li><img src="image/微信图片_20181203144804.jpg"/></li>
+			</ul>
+			<button><</button><button>></button>
+		</div>
+		<span>-0.7</span>
+	</body>
+	<script>
+//		offsetWidth获取元素宽度
+//		offsetLeft获取元素距离左端距离
+		var prev = document.getElementsByTagName("button")[0]
+		var next = document.getElementsByTagName("button")[1]
+		var div = document.getElementsByTagName("div")[0]
+		var ul = document.getElementsByTagName("ul")[0]
+		var li = ul.getElementsByTagName("li")
+		var kuan = div.offsetWidth
+		var index = 0
+		next.onclick = function(){
+			index++
+			if(index>li.length-1){
+				ul.style.left = 0
+				index = 1
+			}
+			hanshu(ul,-index*kuan)
+		}
+		
+		
+		prev.onclick = function(){
+			index--
+			if(index<0){
+				ul.style.left = -(li.length-1)*kuan+"px"
+				index = li.length-2
+			}
+			hanshu(ul,-index*kuan)
+		}
+		
+//		a=ul
+//		b=-index*kuan
+		function hanshu(a,b){
+			clearInterval(a.timer)
+			a.timer = setInterval(function(){
+				var chushi = a.offsetLeft
+				var buchang = (b-chushi)/10
+				if(buchang>0){
+					buchang = Math.ceil(buchang)
+//					buchang = Math.floor(buchang)
+				}else{
+					buchang = Math.floor(buchang)
+//					buchang = Math.ceil(buchang)
+				}
+				console.log(buchang)
+				chushi = chushi+buchang
+				a.style.left = chushi+"px"
+			},30)
+		}
+//		console.log(Math.floor(document.getElementsByTagName("span")[0].innerHTML))
+	</script>
+</html>

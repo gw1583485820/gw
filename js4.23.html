@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<div>
+			<span>wagaw</span>
+			<span>awgawg</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+			<span>6</span>
+			<span>9</span>
+			<span>7</span>
+			<span>8</span>
+			<span>10</span>
+		</div>
+		<button>按钮</button>-->
+		<div id="div1">
+			<h1>html</h1>
+			<h2>javascript</h2>
+		</div>
+	</body>
+	<script>
+//		var div = document.getElementsByTagName("div")[0]
+//		var btn = document.getElementsByTagName("button")[0]
+//		var sp = document.getElementsByTagName("span")
+//		console.log(div.childNodes)
+//		childNodes返回当前给定元素的所有子节点,返回是一个数组,具有length属性
+//		firstChild返回当前给定元素的第一个子节点
+//		div.firstChild.style.color = "red"
+//		btn.onclick = function(){
+//			lastChild返回当前给定元素的最后一个子节点
+//			div.lastChild.remove()
+//			parentNode返回当前给定元素的父元素
+//			sp[2].parentNode.style.background = "red"
+//			nextSibling返回当前给定元素的下一个节点(同辈)
+//			sp[2].nextSibling.style.color = "red"
+//			previousSibling返回当前给定元素的上一个节点(同辈)
+//			sp[2].previousSibling.style.fontSize = "30px"
+//			div.lastElementChild.style.color = "red"
+//			div.firstElementChild.style.color = "red"
+//			document.write("我最帅")
+			
+//		}
+//		var chuang = document.createElement("span")
+//		btn.onclick = function(){
+//			document.createElement()创建节点
+//			var chuang = document.createElement("p");
+//			chuang.innerHTML = "这是我创建的p";
+//			insertBefore()在给定的节点之前插入内容
+//			div.insertBefore(chuang,sp[0]);
+//			appendChild()在给定元素之后插入内容
+//			div.appendChild(chuang)
+//			createTextNode创建文本节点
+//			var jie = document.createTextNode("内容")
+//			sp[0].appendChild(jie)
+//		}
+//		btn.onclick = function(){
+//			removeChild()删除给定元素的指定子节点
+//			div.removeChild(div.childNodes[2])
+//		}
+		var div = document.getElementById("div1")
+		var h1 = document.getElementsByTagName("h1")[0]
+		var h2 = document.getElementsByTagName("h2")[0]
+		var h3 = document.createElement("h3")
+		var htxt = document.createTextNode("这是我创建的h3内容")
+		h3.appendChild(htxt)
+//		var jiedian = div.childNodes[1]
+//		replaceChild()替换节点(两个值,替换的写在前面)
+		div.replaceChild(h3,h1)
+	</script>
+</html>

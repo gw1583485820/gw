@@ -1,0 +1,29 @@
+*{
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				background: #8A2BE2;
+			}
+			#lin1{
+				width: 100px;
+				height: 30px;
+				background: skyblue;
+				color: #FFFFFF;
+				text-align: center;
+				border: 1px solid black;
+				border-radius: 15px;
+				float: left;
+				margin-left: 20px;
+			}
+			#lin2{
+				width: 100px;
+				height: 30px;
+				background: skyblue;
+				color: #FFFFFF;
+				text-align: center;
+				border: 1px solid black;
+				border-radius: 15px;
+				float: left;
+				margin-left: 20px;
+			}

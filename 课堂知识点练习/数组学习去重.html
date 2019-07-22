@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		var a= ["林品如","林品如","洪世贤","熊大","艾莉","洪世贤","艾莉","熊二","熊大","光头强"]
+		// 		var b=[];
+		// 		console.log(a.length);
+		// 		for(var i=0;i<a.length;i++){
+		// 			if(b.indexOf(a[i])==-1){
+		// 				b.push(a[i]);
+		// 			}
+		// 		}
+		// 		console.log(b);
+		var a= ["林品如","林品如","洪世贤","熊大","艾莉","洪世贤","艾莉","熊二","熊大","光头强"];
+		for(var i=0;i<a.length;i++){
+			for(var j=i+1;j<a.length;j++){
+				if(a[i]==a[j]){
+					a.splice(j,1);
+				}
+			}
+			console.log(a[i]);
+		}
+	</script>
+</html>

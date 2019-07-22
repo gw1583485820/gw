@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>小时换天数</title>
+	</head>
+	<body>
+		分钟：<input type="text" id="minute"/><br>
+		几天几时：<input type="text" id="daan" /><br>
+		<input type="button" value="转换" onclick="timeStamp()"/>
+	</body>
+	<script type="text/javascript">
+		function timeStamp(){
+			var h=parseInt(document.getElementById('minute').value);
+			day=parseInt(h/24);
+			hour=h%24;
+			document.getElementById('daan').value=day+"天"+hour+'小时';
+		}
+		
+	</script>
+</html>

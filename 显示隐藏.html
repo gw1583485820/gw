@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				width: 200px;
+				height: 100px;
+				background-color: violet;
+				border: 1px solid chocolate;
+				display: none;
+			}
+			#box2{
+				width: 200px;
+				height: 200px;
+				background-color: #EE82EE;
+				border: 1px solid black;
+			}
+		</style>
+		<script type="text/javascript">
+			function torellow(){
+				var oBox=document.getElementById('box2');
+				oBox.style.width='200px';
+				oBox.style.height='200px';
+				oBox.style.background='yellow';
+			}
+			function tored(){
+				var oBox=document.getElementById('box2');
+				oBox.style.width='300px';
+				oBox.style.height='300px';
+				oBox.style.background='red';
+			}
+			function show(){
+				alert('1111111')
+				/*弹窗,一般校验是否执行代码*/ 
+			}
+			show();
+			show();
+			show();
+		</script>
+	</head>
+	<body>
+		<div id="box2"
+		onmouseover="tored()"
+		onmouseout="torellow()"
+		>
+		</div>
+		<!-- <input type="checkbox" 
+		onclick="box.style.display='block'"
+		ondblclick="box.style.display='none'"/>
+		<div id="box">
+			为了您的信息安全
+		</div> -->
+	</body>
+</html>

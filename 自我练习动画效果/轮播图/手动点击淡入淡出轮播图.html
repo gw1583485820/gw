@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			div{
+				width: 700px;
+				height: 500px;
+				margin: 100px auto;
+				position: relative;
+			}
+			ul,li,img{
+				width: 100%;
+				height: 100%;
+			}
+			li{
+				position: absolute;
+				/*display: none;*/
+				opacity: 0;
+				transition: 1s;
+			}
+			button{
+				width: 30px;
+				height: 50px;
+				position: absolute;
+				top: 240px;
+			}
+			button:nth-of-type(2){
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li style="opacity: 1;"><img src="../img/5c416c4a0fda2.jpg" ></li>
+				<li><img src="../img/5c749f8f64d08.jpg"/></li>
+				<li><img src="../img/5c74a290b752c.jpg"/></li>
+			</ul>
+			<button>&lt;</button>
+			<button>&gt;</button>
+		</div>
+	</body>
+	<script>
+//		第一步都是获取元素
+		var prev = document.getElementsByTagName("button")[0]
+		var next = document.getElementsByTagName("button")[1]
+		var oli = document.getElementsByTagName("li")
+//		手动创建一个变量,当做下标值找到需要找到的图片,让其显示
+		var index = 0
+		next.onclick = function(){
+//			console.log("弹弹弹")
+//			每次点击,下标值加1
+			index++
+//			在让需要显示的图片显示出来之前,先把所有的图片全部隐藏掉
+			for(var j=0; j<oli.length;j++){
+				oli[j].style.opacity = 0
+			}
+//			需要加一个判断,如果到了最后一张图片的时候,在进行点击,返回到第一张
+			if(index>oli.length-1){
+				index = 0
+			}
+//			通过创建的下标值让需要显示的图片显示出来,一张一张切换
+			for(var i=0; i<oli.length;i++){
+				oli[index].style.opacity = 1;
+			}
+		}
+		
+//		反之就是它
+		prev.onclick = function(){
+//			console.log("弹弹弹")
+			index--
+			for(var j=0; j<oli.length;j++){
+				oli[j].style.opacity = 0
+			}
+			if(index<0){
+				index = oli.length-1
+			}
+			for(var i=0; i<oli.length;i++){
+				oli[index].style.opacity = 1
+			}
+		}
+		
+	</script>
+</html>

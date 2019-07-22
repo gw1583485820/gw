@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		1、<br />
+		n:<input type="text" id="t1"/><br>
+		1~n累加：<input type="text" id="t2"/>
+		<input type="button" value="相加" onclick="show()"/><br />
+		2、<br />
+		高度:<input type="text" id="ti21"/><br>
+		次数：<input type="text" id="ti22"/>
+		<input type="button" value="计算" onclick="show2()"/><br>
+		3、<br>
+		关卡数:<input type="text" id="t31"/><br>
+		分数：<input type="text" id="t32"/>
+		<input type="button" value="分数" onclick="show3()"/><br>
+		4、<br>
+		数:<input type="text" id="t41"/><br>
+		<input type="button" value="统计" onclick="show4()"/><br>
+	</body>
+	<script type="text/javascript">
+		function show(){
+		var n=document.getElementById('t1').value;
+		var sum=0;
+		var i=1;
+		while(i<=n){
+			sum=sum+i;
+			i++;
+		}
+		document.getElementById('t2').value=sum;
+		}
+		function show2(){
+			var i=0;
+			for(var h=document.getElementById('ti21').value;h>=1;i++){
+				h=0.6*h
+			}
+			document.getElementById('ti22').value=i;
+		}
+		function show3(){
+			var gk=parseInt(document.getElementById('t31').value);
+			if(gk>0&&gk<=50){
+				var num=0;
+				for(var i=1;i<=gk;i++){
+					if(i<=20){
+						num=num+i;
+					}else if(i<=30){
+						num=num+10;
+					}else if(i<=40){
+						num=num+20;
+					}else if(i<=49){
+						num=num+30;
+					}else{
+						num=num+100;
+					}
+				}
+				document.getElementById('t32').value=num;
+			}
+		}
+		function show4(){
+		var s=document.getElementById('t41').value;
+		for(var i=0;i<=s;i++){
+			if(i%10==7 || i%7==0 || (i-i%10)/10==7){
+				console.log(i)
+			}
+		}
+		}
+	</script>
+</html>

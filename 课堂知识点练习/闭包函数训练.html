@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			button{
+				width: 30px;
+				height: 20px;
+				margin-left: 10px;
+				cursor: pointer;
+			}
+			div{
+				margin-top: 10px;
+				width: 500px;
+				height: 300px;
+				position: absolute;
+				display: none;
+				border: 1px solid #7396B8;
+			}
+			.active{
+				background: red;
+				color: wheat;
+			}
+		</style>
+	</head>
+	<body>
+		<button class="active">1</button>
+		<button>2</button>
+		<button>3</button>
+		<button>4</button>
+		<button>5</button>
+		<div style="background: red; display: block;"></div>
+		<div style="background: yellow;"></div>
+		<div style="background: blue;"></div>
+		<div style="background: green;"></div>
+		<div style="background: #87CEEB;"></div>
+	</body>
+	<script type="text/javascript">
+		var btn=document.getElementsByTagName('button');
+		var odiv=document.getElementsByTagName('div');
+		for(var i=0;i<btn.length;i++){
+			(function(b){
+			btn[b].onclick=function(){
+				for(var j=0;j<btn.length;j++){
+					odiv[j].style.display="none"
+					btn[j].className=""
+				}
+				odiv[b].style.display="block"
+				btn[b].className="active"
+			}
+			})(i)
+		}
+	</script>
+</html>

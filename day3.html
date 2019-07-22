@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script>
+		
+//		前一天回顾
+		
+//		数据类型:5种简单数据类型,2种复杂数据类型
+//		5种简单数据类型:数字,字符串,布尔,空,未定义
+//		2种复杂数据类型:数组,对象
+//		检测数据类型——————>typeof()
+//		查找长度——————>length
+//		数据类型之间的转换——————>字符串<——————>数字
+//		转换方法:显示转换,隐士转换
+//		显示转换:Number(),String(),toString(),parseInt(),parseFloat(),Boolean()
+//		隐士转换:+,-,*,/,%,
+//		对象创建:字面量/自定义创建对象，object原生构造函数创建对象
+//		字面量
+//		var x = {
+//			name:"熊大",
+//			sex:"公"
+//		}
+//		var x = {}
+//		x.name = "熊二"
+//		x.sex = "母"
+//		var x = new Object()
+//		x.name = "光头强"
+//		x.xihao = "砍树"
+		
+		
+		
+//		今天知识
+//		var x = 0
+//		console.log(++x)
+//		++在前,先自增,后赋值
+//		console.log(x++)
+//		console.log(x)
+//		++在后,先赋值,后自增
+//		var x = 11
+//		console.log(++x)//12
+//		console.log(x++)//12  13
+//		console.log(x++)//13  14
+//		console.log(++x)//15  15
+//		console.log(++x)//16  16
+//		console.log(x++)//16  17
+//		console.log(++x)//18  18
+//		console.log(x++)//18  19
+//		console.log(++x)//20  20 
+//		console.log(x++)//20  21
+//		var x = 10
+//		var y = 20
+//		console.log(x+=y)
+//		console.log(x = x + y)
+//		算术运算符
+//		+,-,*,/,%,++,--
+//		比较运算符
+//		==,===,!=,>,<,>=,<=
+//		赋值运算符
+//		=,+=,-=,*=,/=
+//		var x = 10
+//		var y = 20
+//		var z = "20"
+//		x==y&&y==z 		false
+//		x==y||y==z 		true
+//		!(x==y) 		true
+//		逻辑运算符
+//		与或非
+//		&&		||		!
+//		var x = prompt("请输入你的成绩")
+//		x>=70?alert("也就那样吧"):alert("还能混不")
+//		条件语句?满足时执行:不满足时执行; 			三元运算符
+//		本地时间
+		var x = new Date()
+		document.write(x)
+//		星期
+//		var a = x.getDay()
+//		console.log(a)
+//		日期
+//		var a = x.getDate()
+//		console.log(a)
+//		年份
+//		var a = x.getFullYear()
+//		console.log(a)
+//		月份,记得+1哦
+//		var a = x.getMonth()+1
+//		console.log(a)
+//		小时
+//		var a = x.getHours()
+//		console.log(a)
+//		分钟
+//		var a = x.getMinutes()
+//		console.log(a)
+//		毫秒
+//		var a = x.getMilliseconds()
+//		秒
+//		var a = x.getSeconds()
+//		console.log(a)
+//		delete删除数组值（长度不变呦）
+//		var a = [1,2,3,4,5,6]
+//		delete a[2]
+//		console.log(a)
+//		var x = {
+//			name:"翠花儿",
+//			age:18
+//		}
+//		delete x["name"]
+//		console.log(x["name"])
+//		console.log(x)
+		var x = 20
+//		单路分支
+//		if(x==20){
+//			alert("aaa")
+//		}
+//		双路分支
+//		if(x>20){
+//			alert("aaa")
+//		}else{
+//			alert("bbb")
+//		}
+//		多路分支
+//		var x = prompt("请输入您的配偶")
+//		if(x == "翠花儿"){
+//			alert("恭喜你配对儿成功")
+//		}else if(x == "金莲儿"){
+//			alert("来啦，大郎~")
+//		}else if(x == "品如"){
+//			alert("你好骚啊")
+//		}else{
+//			alert("汝怎着品如之衣")
+//		}
+//		嵌套分支
+//		var x = prompt("请输入成绩")
+//		if(x<=100&&x>=0){
+//			if(x>0&&x<60){
+//				alert("真渣")
+//			}else if(x>=60&&x<85){
+//				alert("勉勉强强")
+//			}else if(x>=85&&x<=100){
+//				alert("还阔以")
+//			}
+//		}else{
+//			alert("你输入的是个什么玩意儿")
+//		}
+		var x = prompt("今天是周几呢")
+		switch (x){
+			case "周一":
+			alert("该上班了！")
+				break;
+			case "周二":
+			alert("接着上")
+				break;
+			case "周五":
+			alert("再坚持坚持")
+				break;
+			default:
+			alert("去浪吧")
+				break;
+		}
+	</script>
+</html>

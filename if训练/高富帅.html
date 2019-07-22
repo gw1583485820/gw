@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		身高:<input type="text" id="height"/><br>
+		富裕:<input type="text" id="money"/><br>
+		颜值:<input type="text" id="cool" id="yanzhi"/>
+		<input type="button" id="button" value="嫁否？"/>
+	</body>
+	<script type="text/javascript">
+		// var oBtn=document.getElementById('button');
+		// oBtn.onclick=function(){
+		// var a=document.getElementById('height').value;
+		// var b=document.getElementById('money').value;
+		// var c=document.getElementById('cool').value;
+		// if(a>=180 && b>=1000 && c>=500){
+		// 	console.log('我一定要嫁给他')
+		// }else if(a>=180 || b>=1000 || c>=500){
+		// 	console.log('嫁了吧，比上不足，比下有余')
+		// }else{
+		// 	console.log('不嫁')
+		// }
+		// }
+		// 
+		// // 回调函数案例
+		// function main(callback){
+		// 	callback();
+		// }
+		// function x(){
+		// 	console.log("callback function x")
+		// }
+		// function y(){
+		// 	console.log("callback function y")
+		// }
+		// function z(){
+		// 	console.log("callback function z")
+		// }
+		// main(x);//callback function x
+		// main(y);//callback function y
+		// main(z);//callback function z
+		
+		var myObject={
+			foo: "bar",
+			func: function(){
+				var self = this;
+				console.log("outer func: this.foo = " + this.foo)
+				console.log("outer func: self.foo =" + self.foo)
+				(function() {
+					console.log("inner func: this.foo =" + this.foo)
+					console.log("inner func: self.foo =" + self.foo)
+
+				}())
+			}
+		}
+		myObject.func()
+	</script>
+</html>

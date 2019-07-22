@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>星云图</title>
+	</head>
+	<body>
+		<canvas id="canvas" style="border: 1px solid black; margin: 20px auto;"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas")
+		canvas.width = 1400
+		canvas.height = 700
+		var a1 = canvas.getContext("2d")
+		a1.beginPath()
+		a1.fillStyle="#000020"
+		a1.fillRect(0,0,1400,700)
+		a1.stroke()
+		for(var i=0;i<600;i++){
+			var banjing = Math.random()*5+5
+			var heng = Math.random()*canvas.width
+			var zong = Math.random()*canvas.height
+			var dushu = Math.random()*360
+			star(a1,1,2,heng,zong,'yellow',"white",dushu)
+		}
+		function star(a,r,R,x,y,color,bgcolor,du){
+			a.beginPath()
+			for(var i=0;i<5;i++){
+				a.lineTo(Math.cos((18+72*i-du)/180*Math.PI)*R+x,
+						 -Math.sin((18+72*i-du)/180*Math.PI)*R+y,
+				)
+				a.lineTo(Math.cos((54+72*i-du)/180*Math.PI)*r+x,
+						 -Math.sin((54+72*i-du)/180*Math.PI)*r+y,
+				)
+			}
+			a.strokeStyle = color
+			a.fillStyle = bgcolor
+			a.fill()
+			a.shadowOffsetX = 0
+			a.shadowOffsetY = 0
+			a.shadowBlur = 20
+			a.shadowColor = "rgb(0,0,0)"
+			a.closePath()
+			a.stroke()
+		}
+		a1.beginPath()
+		a1.arc(1250,1650,1500,0,2*Math.PI,false)
+		a1.strokeStyle="#000030"
+		var jianbian = a1.createRadialGradient(700,450,0,700,200,700)
+		jianbian.addColorStop(0.0,"#fbe3e3")
+		jianbian.addColorStop(0.1,"#4f1603")
+		jianbian.addColorStop(0.2,"#a25d56")
+		jianbian.addColorStop(0.3,"#431000")
+		jianbian.addColorStop(0.45,"#662414")
+		jianbian.addColorStop(0.55,"#a67a6d")
+		jianbian.addColorStop(0.6,"#5a2211")
+		jianbian.addColorStop(0.65,"#a67a6d")
+		jianbian.addColorStop(0.75,"#4f1603")
+		jianbian.addColorStop(0.9,"#280a00")
+		jianbian.addColorStop(1,"#431000")
+		a1.fillStyle = jianbian
+		a1.fill()
+		a1.stroke()
+	</script>
+</html>

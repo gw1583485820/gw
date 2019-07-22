@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*p{
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				box-shadow: 0 0 10px rgb(20,20,20);
+				position: absolute;
+			}*/
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			td{
+				width: 250px;
+				height: 50px;
+				text-align: center;
+				line-height: 30px;
+				border: 1px solid gray;	
+			}
+			table{
+				margin-top: 30px;
+			}
+			button{
+				width: 200px;
+				height: 35px;
+				position: fixed;
+				right: 20px;
+				top: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		姓名：<input type="text" />
+		年龄：<input type="text" />
+		爱好：<input type="text" />
+		星座：<input type="text" />
+		血型：<input type="text" />
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>爱好</td>
+				<td>星座</td>
+				<td>血型</td>
+			</tr>
+		</table>
+		<button>添加</button>
+	</body>
+	<script>
+		var body = document.getElementsByTagName("body")[0]
+// 		window.onclick = function(){
+// 			// alert("aaa")
+// 			var a = parseInt(Math.random()*255)
+// 			var b = parseInt(Math.random()*255)
+// 			var c = parseInt(Math.random()*255)
+// 			var ps = document.createElement("p")
+// 			var zuo = parseInt(Math.random()*1366)
+// 			var shang = parseInt(Math.random()*800)
+// 			ps.style.background = "rgb("+a+","+b+","+c+")"
+// 			ps.style.left = zuo+"px"
+// 			ps.style.top = shang+"px"
+// 			body.appendChild(ps)
+// 		}
+		var btn = document.getElementsByTagName("button")[0]
+		var tab = document.getElementsByTagName("table")[0]
+		var ipt = document.getElementsByTagName("input")
+		btn.onclick = function(){
+			console.log(ipt[0].value)
+			if(ipt[0].value == ""){
+				alert("请输入姓名")
+			}else if(ipt[1].value == ""){
+				alert("请输入年龄")
+			}else if(ipt[2].value == ""){
+				alert("请输入爱好")
+			}else if(ipt[3].value == ""){
+				alert("请输入星座")
+			}else if(ipt[4].value == ""){
+				alert("请输入血型")
+			}else{
+				var td1 = document.createElement("td")
+				var td2 = document.createElement("td")
+				var td3 = document.createElement("td")
+				var td4 = document.createElement("td")
+				var td5 = document.createElement("td")
+				var tr1 = document.createElement("tr")
+				tr1.appendChild(td1)
+				tr1.appendChild(td2)
+				tr1.appendChild(td3)
+				tr1.appendChild(td4)
+				tr1.appendChild(td5)
+				tab.appendChild(tr1)
+				var ming = ipt[0].value
+				var nian = ipt[1].value
+				var ai = ipt[2].value
+				var xing = ipt[3].value
+				var xue = ipt[4].value
+				td1.innerHTML = ming
+				td2.innerHTML = nian
+				td3.innerHTML = ai
+				td4.innerHTML = xing
+				td5.innerHTML = xue
+				ipt[0].value = null
+				ipt[1].value = null
+				ipt[2].value = null
+				ipt[3].value = null
+				ipt[4].value = null
+			}
+			
+		}
+	</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" style="border: 1px solid gray;display: block;
+			margin: 0 auto;"></canvas>
+	</body>
+	<script>
+		var canvas = document.getElementById("canvas")
+		canvas.width = 1400
+		canvas.height = 700
+		var a1 = canvas.getContext("2d")
+		var jianbian = a1.createLinearGradient(0,0,1000,500)
+		jianbian.addColorStop(0.0,"blue")
+		jianbian.addColorStop(0.5,"skyblue")
+		jianbian.addColorStop(1.0,"black")
+		a1.fillStyle=jianbian;
+		a1.fillRect(0,0,1400,500);
+		for(var i=0;i<500;i++){
+			var banjing = Math.random()*5+5
+			var heng = Math.random()*canvas.width
+			var zong = Math.random()*canvas.height*0.6
+			var dushu = Math.random()*180
+			star(a1,1.5,3,heng,zong,'bule',"yellow",dushu)
+		}
+		
+		// star(a1,150,300,700,350,'black',"white",0)
+		
+		
+		function star(a,r,R,x,y,color,bgcolor,du){
+			a.beginPath()
+			for(var i=0;i<5;i++){
+				a.lineTo(Math.cos((18+72*i-du)/180*Math.PI)*R+x,
+						 -Math.sin((18+72*i-du)/180*Math.PI)*R+y,
+				)
+				a.lineTo(Math.cos((54+72*i-du)/180*Math.PI)*r+x,
+						 -Math.sin((54+72*i-du)/180*Math.PI)*r+y,
+				)
+			}
+			a.strokeStyle = color
+			a.fillStyle = bgcolor
+			a.fill()
+			a.shadowOffsetX = 0
+			a.shadowOffsetY = 0
+			a.shadowBlur = 20
+			a.shadowColor = "rgb(0,0,0)"
+			a.closePath()
+			a.stroke()
+		}
+	</script>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>选项卡</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				border: 1px solid #ccc;
+				margin: 20px auto;
+				width: 199px;
+			}
+			input{
+				width: 46.2px;
+				height: 20px;
+			}
+			#listCon div{
+				width: 199px;
+				height: 199px;
+				position: absolute;
+				background: #87CEEB;
+				text-align: center;
+				line-height: 200px;
+				display: none;
+				transition: all 2s;
+			}
+			#listCon div.active{
+				color: white;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="list">
+			<input type="button" class="active" value="最新" />
+			<input type="button" value="最热" />
+			<input type="button" value="最火" />
+			<input type="button" value="最牛" />
+			</div>
+			<div id="listCon">
+				<div style="display: block;"><img src="../img/5c416c4a0fda2.jpg" width="100%" height="100%"></div>
+				<div><img src="../img/5c749f8f64d08.jpg" width="100%" height="100%"></div>
+				<div><img src="../img/5c749fe3f038c.jpg" width="100%" height="100%"></div>
+				<div><img src="../img/5c74a290b752c.jpg" width="100%" height="100%"></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var oBox=document.getElementById('box');
+		var oBtn=oBox.getElementsByTagName('input');
+		var oDiv=document.getElementById('listCon');
+		var lisDiv=oDiv.getElementsByTagName('div');
+		for(var i=0;i<oBtn.length;i++){
+			oBtn[i].index=i;
+			oBtn[i].onclick=function(){
+				for(var j=0;j<oBtn.length;j++){
+					oBtn[j].className='';
+					lisDiv[j].style.display='none';
+				}
+				this.className='active';
+				lisDiv[this.index].style.display='block';
+			}
+		}
+	</script>
+</html>

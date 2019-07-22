@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>左右轮播</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 500px;
+				height: 300px;
+				position: relative;
+				margin: 200px auto;
+				/* border: 1px solid #000000; */
+				overflow: hidden;
+			}
+			.image{
+				list-style: none;
+				width: 2500px;
+				height: 300px;
+				position: absolute;
+			}
+			.image li{
+				float: left;
+				width: 500px;
+				height: 300px;
+			}
+			.image li img{
+				width: 100%;
+				height: 100%;
+			}
+			button{
+				width: 30px;
+				height: 50px;
+				position: absolute;
+				top: 125px;
+				border: 1px solid #696969;
+				background-color: #FEFEFE;
+				cursor: pointer;
+			}
+			button:nth-of-type(2){
+				right: 0;
+			}
+			button:hover{
+				background-color: #EDEDED;
+			}
+			.dian{
+				list-style: none;
+				position: absolute;
+				left: 37%;
+				bottom: 1px;
+			}
+			.active{
+				background: red!important;
+			}
+			.dian li{
+				float: left;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				margin-right: 20px;
+				background: #FFFFFF;
+				border: 1px solid #CCCCCC;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul class="image">
+				<li><img src="../img/5c416c4a0fda2.jpg" ></li>
+				<li><img src="../img/5c749f8f64d08.jpg" ></li>
+				<li><img src="../img/5c749fe3f038c.jpg" ></li>
+				<li><img src="../img/5c74a290b752c.jpg" ></li>
+				<li><img src="../img/5c416c4a0fda2.jpg" ></li>
+			</ul>
+			<button>&lt;</button>
+			<button>&gt;</button>
+			<ul class="dian">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li style="margin-right: 0px;"></li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var oDiv=document.getElementsByClassName('box')[0];
+		var oUl=oDiv.getElementsByTagName('ul')[0];
+		var oLi=oUl.getElementsByTagName('li');
+		var prev=document.getElementsByTagName('button')[0];
+		var next=document.getElementsByTagName('button')[1];
+		var dian=document.getElementsByClassName('dian')[0];
+		var yd=dian.getElementsByTagName('li');
+		var kuan=oDiv.offsetWidth
+		// 获取box盒子的宽,以便平移
+		var index=0;
+		var sp=0
+		var timer1;
+		var timer;
+		next.onclick=function(){
+			index++;
+			if(index>oLi.length-1){
+				oUl.style.left=0;
+				index=1;
+			}
+			hanshu(oUl,-index*kuan)
+			// 创建一个封装函数使大盒子平移
+			sp++;
+			sp=index
+			if(sp>3){
+				sp=0;
+			}
+			for(var i=0;i<yd.length;i++){
+				yd[i].className=""
+			}
+			yd[sp].className="active";
+		}
+		prev.onclick=function(){
+			index--;
+			if(index<0){
+				oUl.style.left=-(oLi.length-1)*kuan+"px";
+				index=oLi.length-2;
+			}
+			hanshu(oUl,-index*kuan)
+			// 创建一个封装函数使大盒子平移
+			sp--;
+			sp=index
+			if(sp<0){
+				sp=3;
+			}
+			for(var i=0;i<yd.length;i++){
+				yd[i].className=""
+			}
+			yd[sp].className="active";
+		}
+		for(var i=0;i<yd.length;i++){
+			yd[i].sp=i;
+			yd[i].onclick=function(){
+				index=yd[this.sp].sp;
+				for(var j=0;j<yd.length;j++){
+					yd[j].className="";
+				}
+				this.className="active";
+				hanshu(oUl,-index*kuan);
+			}
+		}
+		timer1=setInterval(function(){
+			index++;
+			if(index>oLi.length-1){
+				oUl.style.left=0;
+				index=1;
+			}
+			hanshu(oUl,-index*kuan)
+			sp++;
+			sp=index;
+			if(sp>yd.length-1){
+				sp=0;
+			}
+			for(var i=0;i<yd.length;i++){
+				yd[i].className="";
+			}
+			yd[sp].className="active";
+		},3000)
+		oDiv.onmouseover=function(){
+			clearInterval(timer1);
+// 			for(var i=0;i<yd.length;i++){
+// 				yd[i].sp=i;
+// 				yd[i].onclick=function(){
+// 					index=yd[this.sp].sp;
+// 					for(var j=0;j<yd.length;j++){
+// 						yd[j].className="";
+// 					}
+// 					this.className="active";
+// 					hanshu(oUl,-index*kuan);
+// 				}
+// 			}
+		}
+		oDiv.onmouseout=function(){
+			timer1=setInterval(function(){
+				index++;
+				if(index>oLi.length-1){
+					oUl.style.left=0;
+					index=1;
+				}
+				hanshu(oUl,-index*kuan)
+				sp++;
+				sp=index;
+				if(sp>yd.length-1){
+					sp=0;
+				}
+				for(var i=0;i<yd.length;i++){
+					yd[i].className="";
+				}
+				yd[sp].className="active";
+			},3000)
+		}
+		function hanshu(a,b){
+			clearInterval(a.timer)
+			a.timer=setInterval(function(){
+				var chushi=a.offsetLeft;
+				var buchang=(b-chushi)/5
+				if(buchang>0){
+					buchang=Math.ceil(buchang);
+				}else{
+					buchang=Math.floor(buchang);
+				}
+				chushi=chushi+buchang;
+				a.style.left=chushi+"px";
+			},30)
+		}
+	</script>
+</html>

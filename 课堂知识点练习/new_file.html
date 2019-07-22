@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var aa=function(x){
+			 var sum=1;
+			 var bb=function(x){
+				 sum=sum+x;
+				 return bb;
+			 }
+			 bb.toString=function(){
+				 return sum
+			 }
+			 return bb;
+		 }
+		 alert(aa(1)(2)(3))
+// 		 （1）.function aa(x){}，此函数实现了多次调用效果，参数就是要传递的数字。
+// （2）.var sum=x，将x值赋值给sum。
+// （3）.var tmp=function(y){
+//   sum=sum+x;
+//   return bb;
+// }，声明一个函数，此函数实现了数字的累加效果，并且会返回函数本身。
+// （4）bb.toString=function(){
+//   return sum;
+// }，重写了bb的toString()方法，目的是为了返回计算结果值，add(1)(2)(3)单纯这样获取的是函数对象，而是用console.log()输出add(1)(2)(3)的时候就会隐式调用toString()方法，于是就会获取计算值。
+// （5）.return bb，返回函数。
+	</script>
+</html>

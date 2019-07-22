@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			ul{
+				width: 1000px;
+				display: block;
+				margin: 150px auto;
+			}
+			ul>li{
+				float: left;
+			}
+			li>img{
+				width: 200px;
+				height: 150px;
+			}
+			div{
+				position: fixed;
+				width: 500px;
+				height: 400px;
+				border: 1px solid gray;
+				/*盒模型居中*/
+				top: 50%;
+				left: 50%;
+				/*margin-top: -200px;*/
+				/*margin-left: -250px;*/
+				transform: translate(-50%,-50%);
+				display: none;
+				background-size: 100% 100%;
+			}
+			button{
+				width: 50px;
+				height: 50px;
+				background: none;
+				border: none;
+				font-size: 30px;
+				position: absolute;
+				top: 0;
+				right: 0;
+				text-align: center;
+				line-height: 50px;
+			}
+			button:hover{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><img src="image/微信图片_20181203144804.jpg"/></li>
+			<li><img src="image/微信图片_20181229091252.jpg"/></li>
+			<li><img src="image/微信图片_20190102095532.jpg"/></li>
+			<li><img src="image/微信图片_20190102095536.jpg"/></li>
+			<li><img src="image/微信图片_20190102095546.jpg"/></li>
+		</ul>
+		<div>
+			<button>x</button>
+		</div>
+	</body>
+	<script>
+//		获取元素
+		var li = document.getElementsByTagName("li")
+		var btn = document.getElementsByTagName("button")[0]
+		var div = document.getElementsByTagName("div")[0]
+//		遍历所有li
+		for(var i=0; i<li.length;i++){
+//			绑定点击事件
+			li[i].onclick = function(){
+//				console.log(this)
+//				通过this找到当前点击的li,再找到当前点击的li下面的img的src属性
+				var lujing = this.getElementsByTagName("img")[0].src
+//				将显示出来的盒模型的背景图片的路径变成之前获取的src的值
+				div.style.backgroundImage = "url("+lujing+")"
+//				将盒模型显示出来
+				div.style.display = "block"
+			}
+		}
+//		按钮绑定点击事件
+		btn.onclick = function(){
+//			让盒模型消失掉
+			div.style.display = "none"
+		}
+	</script>
+</html>

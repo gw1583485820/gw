@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 300px;
+				height: 300px;
+				border: 1px solid black;
+				float: left;
+				margin-left: 20px;
+			}
+			/* .show{
+				background: red;
+			} */
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+	<script type="text/javascript">
+		/*第一种方法直接用style换背景颜色*/ 
+// 		var oDiv=document.getElementsByTagName('div');
+// 		console.log(oDiv);
+// 		for(var i=0; i<oDiv.length; i++){
+// 			oDiv[i].style.background='red';
+// 		}
+/*第二种方法用classname*/ 
+//          var oDiv=document.getElementsByTagName('div');
+// 		console.log(oDiv);
+// 		for(var i=0; i<oDiv.length; i++){
+// 			oDiv[i].className='show';
+// 		}
+		/*第三种给指定的盒子加背景颜色*/ 
+		var oDiv=document.getElementsByTagName('div');
+		 		console.log(oDiv);
+				for(var i=0; i<oDiv.length; i++){
+					if(i<2){
+				oDiv[i].style.background='red';
+				}
+				}
+	</script>
+</html>

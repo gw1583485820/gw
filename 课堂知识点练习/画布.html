@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>js画布五角星</title>
+	</head>
+	<body>
+		<canvas id="canvas" style="border: 1px solid gray; display: block; margin: 50px auto;"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas=document.getElementById('canvas');
+		canvas.width=800;
+		canvas.height=650;
+		var a1=canvas.getContext('2d')
+		a1.beginPath()
+		star(a1,400,320,150,300,10,'yellowgreen','yellow')
+		function star(a,x,y,r,R,width,color,bacolor){
+			// for(var i=0;i<12;i++){
+			// 	a.lineTo(Math.cos((-30+i*30)/180*Math.PI)*R+x,
+			// 	-Math.sin((-30+i*30)/180*Math.PI)*R+y
+			// 	)
+			// 	a.lineTo(Math.cos((-15+i*30)/180*Math.PI)*r+x,
+			// 	-Math.sin((-15+i*30)/180*Math.PI)*r+y
+			// 	)
+			// }
+			for(var i=0;i<30;i++){
+				a.lineTo(Math.cos((6+i*12)/180*Math.PI)*R+x,
+				-Math.sin((6+i*12)/180*Math.PI)*R+y
+				)
+				a.lineTo(Math.cos((12+i*12)/180*Math.PI)*r+x,
+				-Math.sin((12+i*12)/180*Math.PI)*r+y
+				)
+			}
+			a.lineWidth=width;
+			a.strokeStyle=color;
+			a.fillStyle=bacolor;
+			a.fill();
+			a.closePath();
+			a.stroke();
+		}
+		
+	</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 300px;
+				height: 300px;
+				border: 1px solid red;
+				background: yellow;
+				display: block;
+			}
+			.hide{
+				display: none!important;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="word" value="隐藏" onclick="show()"/>
+		<div id="box" >
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		function show(){
+			var oBox=document.getElementById('box');
+			if(document.getElementById('word').value=="隐藏"){
+				oBox.className="hide";
+				document.getElementById('word').value="显示";
+		}else{
+			oBox.className="";
+			document.getElementById('word').value="隐藏";
+		}
+		}
+	</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>判断标准体重</title>
+	</head>
+	<body>
+		标准体重：男士体重=身高-100 女士体重=身高-110+3
+		<br>
+		请输入性别：<input type="text" id="xingbie" /><br>
+		请输入身高：<input type="text" id="shengao" /><br>
+		请输入体重：<input type="text" id="tizhong" /><br>
+		<input type="button" value="检查体重是否标准" onclick="biaozhun()"/>
+	</body>
+	<script>
+		function biaozhun()
+		{
+		var sex =document.getElementById("xingbie").value;
+		var height =parseFloat(document.getElementById("shengao").value);
+		var weight = parseFloat(document.getElementById("tizhong").value);
+		if(sex=="男")
+		{
+		var tz = height-100-weight;
+		if(tz<=3&&tz>=-3)
+		{
+		alert("标准体重")	
+		}
+		else if(tz>3)
+		{
+		alert("偏轻")	
+		}
+		else
+		{
+		alert("过重")	
+		}
+		}
+		else if(sex=="女")
+		{
+		var tz = height-110-weight;
+		if(tz<=3&&tz>=-3)
+		{
+		alert("标准体重")	
+		}
+		else if(tz>3)
+		{
+		alert("偏轻")	
+		}
+		else
+		{
+		alert("过重")	
+		}
+		}
+		else
+		{
+		alert("性别输入有误！")	
+		}
+		}
+	</script>
+</html>

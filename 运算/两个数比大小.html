@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>比大小</title>
+	</head>
+	<body>
+		第一位数：<input type="text" id="sub1"/><br>
+		第二位数：<input type="text" id="sub2"/><br>
+		对比结果：<input type="text" id="danan"/><br>
+		<input type="button" value="比较" onclick="bijiao()"/>
+	</body>
+	<script type="text/javascript">
+		function bijiao(){
+			var sub1=parseInt(document.getElementById('sub1').value);
+			var sub2=parseInt(document.getElementById('sub2').value);
+			if(sub1>sub2){
+				document.getElementById("danan").value=sub1+">"+sub2
+			}
+			else if(sub1==sub2){
+				document.getElementById("danan").value=sub1+"="+sub2
+			}
+			else{
+				document.getElementById("danan").value=sub1+"<"+sub2
+			}
+		}
+	</script>
+</html>

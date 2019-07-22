@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			th{
+				width: 250px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				border: 1px solid lightgray;
+			}
+			td{
+				width: 250px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				border: 1px solid lightgray;
+			}
+			table{
+				margin-top: 15px;
+			}
+			.bian1{
+				background: lightgray;
+			}
+			.bian2{
+				background: dodgerblue;
+			}
+			.aa{
+				background: lightgray;
+			}
+			.aaa{
+				background: red;
+			}
+			.gai1{
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		姓名：<input type="text" />
+		年龄：<input type="text" />
+		爱好：<input type="text" />
+		<button>添加</button>
+		<input type="text" />
+		<button>查找</button>
+		<input type="text" />
+		<button>修改</button>
+		<table cellpadding="0" cellspacing="0">
+			<thead class="bian1">
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>爱好</th>
+				<th>操作</th>
+			</thead>
+		</table>
+	</body>
+	<script>
+		var tab = document.getElementsByTagName("table")[0]
+		var tr = document.getElementsByTagName("tr")
+		var td = document.getElementsByTagName("td")
+		var xm = document.getElementsByTagName("input")[0]
+		var nl = document.getElementsByTagName("input")[1]
+		var ah = document.getElementsByTagName("input")[2]
+		var tj = document.getElementsByTagName("button")[0]
+		var cha = document.getElementsByTagName("input")[3]
+		var zhao = document.getElementsByTagName("button")[1]
+		var xiu = document.getElementsByTagName("input")[4]
+		var gai = document.getElementsByTagName("button")[2]
+		tj.onclick = function(){
+//			alert("aaa")
+			if(xm.value==""){
+				alert("请输入姓名")
+			}else if(nl.value == ""){
+				alert("请输入年龄")
+			}else if(ah.value==""){
+				alert("请输入爱好")
+			}else{
+				var tr1 = document.createElement("tr")
+				var td1 = document.createElement("td")
+				var td2 = document.createElement("td")
+				var td3 = document.createElement("td")
+				var td4 = document.createElement("td")
+				tr1.appendChild(td1)
+				tr1.appendChild(td2)
+				tr1.appendChild(td3)
+				tr1.appendChild(td4)
+				tab.appendChild(tr1)
+				td1.innerHTML = xm.value
+				td2.innerHTML = nl.value
+				td3.innerHTML = ah.value
+				td4.innerHTML = "<button class='sc'>删除</button>"
+				xm.value = ""
+				nl.value = ""
+				ah.value = ""
+				
+				
+				ghbs()
+				
+				
+//				单行删除
+				var sc = document.getElementsByClassName("sc")
+				for(var i=0; i<sc.length;i++){
+					sc[i].onclick = function(){
+//						console.log(this)
+						this.parentNode.parentNode.remove()
+						ghbs()
+					}
+				}
+				
+//				查找
+				zhao.onclick = function(){
+//					alert("aaa")
+					var zhi1 = cha.value
+//					console.log(zhi1)
+					for(var i=0; i<td.length;i++){
+						if(td[i].innerHTML.indexOf(zhi1)!=-1){
+//							console.log(td[i])
+							for(var j=0; j<td.length;j++){
+								td[j].parentNode.className = "bbb"
+							}
+							td[i].parentNode.className = "aaa"
+						}
+					}
+				}
+				
+				
+				
+//				修改
+				for(var i=0; i<td.length;i++){
+					td[i].onclick = function(){
+						for(var j=0;j<td.length;j++){
+							td[j].className = "gai2"
+						}
+						this.className = "gai1"
+					}
+				}
+				
+				gai.onclick = function(){
+					var zhi2 = xiu.value
+					for(var i=0; i<td.length; i++){
+						if(td[i].className=="gai1"){
+//							console.log(td[i])
+							td[i].innerHTML = zhi2
+							td[i].className = "gai2"
+							ghbs()
+						}
+					}
+				}
+				
+			}
+			
+			
+			
+			
+			
+			function ghbs(){
+				for(var i=0; i<tr.length;i++){
+					if(i%2==0){
+						tr[i].className = "bian1"
+					}else{
+						tr[i].className = "bian2"
+					}
+				}
+			}
+			
+		}
+	</script>
+</html>

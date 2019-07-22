@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>放大镜</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.yi{
+				width: 300px;
+				height: 500px;
+				margin: 100px 0 0 100px;
+				float: left;
+				position: relative;
+			}
+			.er{
+				width: 300px;
+				height: 500px;
+				position: relative;
+				float: left;
+				margin-top: 100px;
+				display: none;
+				overflow: hidden;
+			}
+			.yi>img{
+				width: 100%;
+				height: 100%;
+			}
+			.er>img{
+				position: absolute;
+				width: 200%;
+				height: 200%;
+				top: 0;
+				left: 0;
+			}
+			.fdj{
+				width: 50%;
+				height: 50%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: rgba(100,100,100,0.5);
+				display: none;
+				cursor: pointer;
+			}
+			.aaa{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="yi">
+			<img src="img/QQ图片20190514154016.gif" >
+			<div class="fdj"></div>
+		</div>
+		<div class="er">
+			<img src="img/QQ图片20190514154016.gif" >
+		</div>
+	</body>
+	<script type="text/javascript">
+		var yi = document.getElementsByClassName("yi")[0];
+		var fdj = document.getElementsByClassName("fdj")[0];
+		var er = document.getElementsByClassName("er")[0];
+		var ertu=document.getElementsByTagName("img")[1];
+		yi.onmouseover=function(){
+			fdj.className="fdj aaa"
+			er.className="er aaa"
+		}
+		yi.onmouseout=function(){
+			fdj.className = "fdj"
+			er.className = "er"
+		}
+		yi.onmousemove=function(event){
+			var x = event.clientX-this.offsetLeft-fdj.offsetWidth/2
+			var y = event.clientY-this.offsetTop-fdj.offsetHeight/2
+			if(x<0){x=0}
+			if(y<0){y=0}
+			if(x>this.offsetWidth-fdj.offsetWidth){
+				x=this.offsetWidth-fdj.offsetWidth
+			}
+			if(y>this.offsetHeight-fdj.offsetHeight){y=this.offsetHeight-fdj.offsetHeight}
+			fdj.style.left= x+"px";
+			fdj.style.top = y+"px";
+			ertu.style.left = -x*2+"px";
+			ertu.style.top = -y*2+"px";
+		}
+	</script>
+</html>
